@@ -21,7 +21,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
-    "Hello Bayn Qalbayn, I would like to place an order."
+    "Hello Bayn Qalbayn, I would like to place an order.",
   );
 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -36,6 +36,7 @@ export default function Navbar() {
               src="/images/bayn-qalbayn/logo.png"
               alt="Bayn Qalbayn Cafe and Restaurant logo"
               fill
+              sizes="48px"
               className="object-contain p-1.5"
               priority
             />
