@@ -12,14 +12,17 @@ export default function MenuSection() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredItems = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
     return menuItems.filter((item) => {
       const categoryMatch =
         activeCategory === "all" || item.category === activeCategory;
 
       const searchMatch =
-        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.tag.toLowerCase().includes(searchTerm.toLowerCase());
+        !query ||
+        item.name.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query) ||
+        item.tag.toLowerCase().includes(query);
 
       return categoryMatch && searchMatch;
     });
@@ -45,26 +48,26 @@ Special Note:`
   return (
     <section
       id="menu"
-      className="relative overflow-hidden bg-[#FFF8EC] px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
+      className="relative w-full overflow-hidden bg-[#FFF8EC] px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C9A35B] sm:text-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#C9A35B] sm:text-sm sm:tracking-[0.28em]">
             Our Menu
           </p>
 
-          <h2 className="mt-4 font-serif text-3xl font-semibold uppercase tracking-[0.06em] text-[#3A2418] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-serif text-3xl font-semibold uppercase leading-tight tracking-[0.04em] text-[#3A2418] sm:text-4xl lg:text-5xl">
             Taste the Signature Selection
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-[#5A3A28]/80 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#5A3A28]/80 sm:text-base">
             Browse our cafe and restaurant favorites. Customers can view items,
             check prices, and order directly through WhatsApp with one click.
           </p>
         </div>
 
         <div className="mx-auto mt-9 max-w-xl">
-          <div className="flex items-center gap-3 rounded-full border border-[#C9A35B]/25 bg-white px-4 py-3 shadow-sm sm:px-5">
+          <div className="flex w-full items-center gap-3 rounded-full border border-[#C9A35B]/25 bg-white px-4 py-3 shadow-sm sm:px-5">
             <Search size={18} className="shrink-0 text-[#8A7862]" />
             <input
               type="text"
@@ -76,8 +79,8 @@ Special Note:`
           </div>
         </div>
 
-        <div className="mt-7 overflow-x-auto pb-2 [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
-          <div className="flex w-max min-w-full gap-2 sm:justify-center sm:gap-3">
+        <div className="mt-7 w-full overflow-x-auto pb-2 [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
+          <div className="flex min-w-max gap-2 px-1 sm:min-w-0 sm:flex-wrap sm:justify-center sm:gap-3">
             {menuCategories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.value;
@@ -87,14 +90,14 @@ Special Note:`
                   key={category.value}
                   type="button"
                   onClick={() => setActiveCategory(category.value)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-3 text-xs font-bold uppercase tracking-widest transition sm:px-5 sm:text-sm ${
+                  className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full border px-4 py-3 text-xs font-bold uppercase tracking-widest transition sm:px-5 sm:text-sm ${
                     isActive
                       ? "border-[#3A2418] bg-[#3A2418] text-[#FFF8EC]"
-                      : "border-[#C9A35B]/25 bg-white text-[#5A3A28]"
+                      : "border-[#C9A35B]/25 bg-white text-[#5A3A28] hover:border-[#C9A35B]/60"
                   }`}
                 >
                   <Icon size={16} className="shrink-0" />
-                  {category.label}
+                  <span className="whitespace-nowrap">{category.label}</span>
                 </button>
               );
             })}
@@ -109,13 +112,13 @@ Special Note:`
           menu item{filteredItems.length === 1 ? "" : "s"}
         </p>
 
-        <div className="mt-9 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-9 grid w-full gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {filteredItems.map((item) => (
             <article
               key={item.id}
-              className="overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-md"
+              className="w-full overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-md"
             >
-              <div className="relative h-56 overflow-hidden bg-[#F7EFE3] sm:h-60">
+              <div className="relative h-56 w-full overflow-hidden bg-[#F7EFE3] sm:h-60">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -126,8 +129,8 @@ Special Note:`
 
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#1F1A17]/70 to-transparent" />
 
-                <div className="absolute left-4 top-4 rounded-full bg-[#FFF8EC] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5A3A28] shadow-sm">
-                  {item.tag}
+                <div className="absolute left-4 top-4 max-w-[calc(100%-2rem)] rounded-full bg-[#FFF8EC] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#5A3A28] shadow-sm">
+                  <span className="line-clamp-1">{item.tag}</span>
                 </div>
 
                 <div className="absolute bottom-4 right-4 rounded-full bg-[#C9A35B] px-4 py-2 text-sm font-bold text-[#1F1A17] shadow-sm">
@@ -136,7 +139,7 @@ Special Note:`
               </div>
 
               <div className="p-5 sm:p-6">
-                <h3 className="font-serif text-xl font-semibold text-[#3A2418] sm:text-2xl">
+                <h3 className="font-serif text-xl font-semibold leading-tight text-[#3A2418] sm:text-2xl">
                   {item.name}
                 </h3>
 
@@ -148,10 +151,10 @@ Special Note:`
                   href={createWhatsappLink(item.name, item.price)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-5 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-white transition active:scale-[0.98]"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-5 py-3.5 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-green-700 active:scale-[0.98]"
                 >
-                  <MessageCircle size={18} />
-                  Order on WhatsApp
+                  <MessageCircle size={18} className="shrink-0" />
+                  <span>Order on WhatsApp</span>
                 </a>
               </div>
             </article>
@@ -159,10 +162,11 @@ Special Note:`
         </div>
 
         {filteredItems.length === 0 && (
-          <div className="mt-12 rounded-4xl border border-[#C9A35B]/20 bg-white p-8 text-center shadow-sm sm:p-10">
+          <div className="mx-auto mt-12 max-w-2xl rounded-4xl border border-[#C9A35B]/20 bg-white p-8 text-center shadow-sm sm:p-10">
             <h3 className="font-serif text-2xl font-semibold text-[#3A2418]">
               No menu item found
             </h3>
+
             <p className="mt-3 text-sm leading-6 text-[#5A3A28]/75">
               Try searching with another item name or select a different
               category.
@@ -174,21 +178,21 @@ Special Note:`
                 setSearchTerm("");
                 setActiveCategory("all");
               }}
-              className="mt-6 rounded-full bg-[#3A2418] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#FFF8EC] transition active:scale-[0.98]"
+              className="mt-6 rounded-full bg-[#3A2418] px-6 py-3 text-sm font-bold uppercase tracking-widest text-[#FFF8EC] transition active:scale-[0.98]"
             >
               Reset Menu
             </button>
           </div>
         )}
 
-        <div className="mt-14 overflow-hidden rounded-4xl bg-[#3A2418] p-6 shadow-md sm:p-8 lg:p-10">
+        <div className="mt-14 w-full overflow-hidden rounded-4xl bg-[#3A2418] p-6 shadow-md sm:p-8 lg:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C9A35B]">
+            <div className="min-w-0">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#C9A35B] sm:tracking-[0.28em]">
                 Quick Order
               </p>
 
-              <h3 className="mt-3 font-serif text-2xl font-semibold text-[#FFF8EC] sm:text-3xl">
+              <h3 className="mt-3 font-serif text-2xl font-semibold leading-tight text-[#FFF8EC] sm:text-3xl">
                 Want to order something special?
               </h3>
 
@@ -205,10 +209,10 @@ Special Note:`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition active:scale-[0.98] sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-green-700 active:scale-[0.98] sm:w-auto"
             >
-              <MessageCircle size={18} />
-              Chat on WhatsApp
+              <MessageCircle size={18} className="shrink-0" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>
