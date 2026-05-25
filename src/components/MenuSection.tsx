@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from "next/image";
@@ -47,20 +45,15 @@ Special Note:`
   return (
     <section
       id="menu"
-      className="relative overflow-hidden bg-[#FFF8EC] px-4 py-20 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[#FFF8EC] px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
     >
-      {/* Background Decorations */}
-      <div className="pointer-events-none absolute -left-30 top-20 h-72 w-72 rounded-full bg-[#C9A35B]/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-10 -right-30 h-72 w-72 rounded-full bg-[#8A7862]/10 blur-3xl" />
-
-      <div className="relative z-10 mx-auto max-w-7xl">
-        {/* Section Heading */}
+      <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#C9A35B] sm:text-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C9A35B] sm:text-sm">
             Our Menu
           </p>
 
-          <h2 className="mt-4 font-serif text-3xl font-semibold uppercase tracking-[0.08em] text-[#3A2418] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 font-serif text-3xl font-semibold uppercase tracking-[0.06em] text-[#3A2418] sm:text-4xl lg:text-5xl">
             Taste the Signature Selection
           </h2>
 
@@ -70,23 +63,21 @@ Special Note:`
           </p>
         </div>
 
-        {/* Search Box */}
-        <div className="mx-auto mt-10 max-w-xl">
-          <div className="flex items-center gap-3 rounded-full border border-[#C9A35B]/25 bg-white px-5 py-3 shadow-sm">
-            <Search size={19} className="shrink-0 text-[#8A7862]" />
+        <div className="mx-auto mt-9 max-w-xl">
+          <div className="flex items-center gap-3 rounded-full border border-[#C9A35B]/25 bg-white px-4 py-3 shadow-sm sm:px-5">
+            <Search size={18} className="shrink-0 text-[#8A7862]" />
             <input
               type="text"
               placeholder="Search coffee, desserts, pasta..."
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
-              className="w-full bg-transparent text-sm text-[#3A2418] outline-none placeholder:text-[#8A7862]/70 sm:text-base"
+              className="min-w-0 flex-1 bg-transparent text-sm text-[#3A2418] outline-none placeholder:text-[#8A7862]/70 sm:text-base"
             />
           </div>
         </div>
 
-        {/* Category Filter */}
-        <div className="mt-8 overflow-x-auto pb-2 [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
-          <div className="mx-auto flex w-max min-w-full justify-start gap-3 sm:justify-center">
+        <div className="mt-7 overflow-x-auto pb-2 [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden">
+          <div className="flex w-max min-w-full gap-2 sm:justify-center sm:gap-3">
             {menuCategories.map((category) => {
               const Icon = category.icon;
               const isActive = activeCategory === category.value;
@@ -96,13 +87,13 @@ Special Note:`
                   key={category.value}
                   type="button"
                   onClick={() => setActiveCategory(category.value)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-5 py-3 text-xs font-bold uppercase tracking-[0.12em] transition sm:text-sm ${
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-3 text-xs font-bold uppercase tracking-widest transition sm:px-5 sm:text-sm ${
                     isActive
-                      ? "border-[#3A2418] bg-[#3A2418] text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15"
-                      : "border-[#C9A35B]/25 bg-white text-[#5A3A28] hover:border-[#C9A35B] hover:bg-[#F7EFE3]"
+                      ? "border-[#3A2418] bg-[#3A2418] text-[#FFF8EC]"
+                      : "border-[#C9A35B]/25 bg-white text-[#5A3A28]"
                   }`}
                 >
-                  <Icon size={16} />
+                  <Icon size={16} className="shrink-0" />
                   {category.label}
                 </button>
               );
@@ -110,46 +101,40 @@ Special Note:`
           </div>
         </div>
 
-        {/* Menu Count */}
-        <div className="mt-6 text-center">
-          <p className="text-sm font-medium text-[#5A3A28]/70">
-            Showing{" "}
-            <span className="font-bold text-[#3A2418]">
-              {filteredItems.length}
-            </span>{" "}
-            menu item{filteredItems.length === 1 ? "" : "s"}
-          </p>
-        </div>
+        <p className="mt-5 text-center text-sm font-medium text-[#5A3A28]/70">
+          Showing{" "}
+          <span className="font-bold text-[#3A2418]">
+            {filteredItems.length}
+          </span>{" "}
+          menu item{filteredItems.length === 1 ? "" : "s"}
+        </p>
 
-        {/* Menu Grid */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-9 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {filteredItems.map((item) => (
             <article
               key={item.id}
-              className="group overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-lg shadow-[#3A2418]/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3A2418]/10"
+              className="overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-md"
             >
-              {/* Image */}
-              <div className="relative h-56 overflow-hidden sm:h-60">
+              <div className="relative h-56 overflow-hidden bg-[#F7EFE3] sm:h-60">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/65 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#1F1A17]/70 to-transparent" />
 
-                <div className="absolute left-4 top-4 rounded-full bg-[#FFF8EC]/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#5A3A28] shadow-md">
+                <div className="absolute left-4 top-4 rounded-full bg-[#FFF8EC] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5A3A28] shadow-sm">
                   {item.tag}
                 </div>
 
-                <div className="absolute bottom-4 right-4 rounded-full bg-[#C9A35B] px-4 py-2 text-sm font-bold text-[#1F1A17] shadow-md">
+                <div className="absolute bottom-4 right-4 rounded-full bg-[#C9A35B] px-4 py-2 text-sm font-bold text-[#1F1A17] shadow-sm">
                   {item.price}
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-5 sm:p-6">
                 <h3 className="font-serif text-xl font-semibold text-[#3A2418] sm:text-2xl">
                   {item.name}
@@ -163,7 +148,7 @@ Special Note:`
                   href={createWhatsappLink(item.name, item.price)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3A2418] px-5 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15 transition hover:bg-[#5A3A28]"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-5 py-3.5 text-sm font-bold uppercase tracking-[0.12em] text-white transition active:scale-[0.98]"
                 >
                   <MessageCircle size={18} />
                   Order on WhatsApp
@@ -173,9 +158,8 @@ Special Note:`
           ))}
         </div>
 
-        {/* Empty State */}
         {filteredItems.length === 0 && (
-          <div className="mt-12 rounded-4xl border border-[#C9A35B]/20 bg-white p-10 text-center shadow-sm">
+          <div className="mt-12 rounded-4xl border border-[#C9A35B]/20 bg-white p-8 text-center shadow-sm sm:p-10">
             <h3 className="font-serif text-2xl font-semibold text-[#3A2418]">
               No menu item found
             </h3>
@@ -190,18 +174,17 @@ Special Note:`
                 setSearchTerm("");
                 setActiveCategory("all");
               }}
-              className="mt-6 rounded-full bg-[#3A2418] px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#FFF8EC] transition hover:bg-[#5A3A28]"
+              className="mt-6 rounded-full bg-[#3A2418] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#FFF8EC] transition active:scale-[0.98]"
             >
               Reset Menu
             </button>
           </div>
         )}
 
-        {/* Bottom CTA */}
-        <div className="mt-16 overflow-hidden rounded-4xl bg-[#3A2418] p-6 shadow-2xl shadow-[#3A2418]/15 sm:p-8 lg:p-10">
+        <div className="mt-14 overflow-hidden rounded-4xl bg-[#3A2418] p-6 shadow-md sm:p-8 lg:p-10">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#C9A35B]">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C9A35B]">
                 Quick Order
               </p>
 
@@ -222,7 +205,7 @@ Special Note:`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A35B] px-7 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#1F1A17] shadow-lg shadow-[#C9A35B]/20 transition hover:bg-[#D8B76C] sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-green-600 px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white transition active:scale-[0.98] sm:w-auto"
             >
               <MessageCircle size={18} />
               Chat on WhatsApp
