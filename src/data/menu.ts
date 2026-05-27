@@ -68,8 +68,7 @@ export const menuItems: MenuItem[] = [
     price: "18 QAR",
     description:
       "Rich traditional coffee served with a warm aromatic profile and premium presentation.",
-    image:
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/signature-arabic-coffee.webp",
     tag: "Signature",
   },
   {
@@ -79,8 +78,7 @@ export const menuItems: MenuItem[] = [
     price: "22 QAR",
     description:
       "Smooth espresso with creamy milk and a sweet balanced flavor, served hot or iced.",
-    image:
-      "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/spanish-latte.webp",
     tag: "Best Seller",
   },
   {
@@ -90,8 +88,8 @@ export const menuItems: MenuItem[] = [
     price: "19 QAR",
     description:
       "Classic espresso-based coffee with steamed milk and soft foam, perfect for any time.",
-    image:
-      "https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/cappuccino.webp",
+
     tag: "Classic",
   },
   {
@@ -101,8 +99,8 @@ export const menuItems: MenuItem[] = [
     price: "24 QAR",
     description:
       "Chilled espresso with milk, caramel flavor, and a smooth refreshing finish.",
-    image:
-      "https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/iced-caramel-macchiato.webp",
+
     tag: "Iced Favorite",
   },
   {
@@ -112,8 +110,8 @@ export const menuItems: MenuItem[] = [
     price: "20 QAR",
     description:
       "Freshly squeezed orange juice, refreshing and perfect for any time of the day.",
-    image:
-      "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/fresh-orange-juice.webp",
+
     tag: "Fresh",
   },
   {

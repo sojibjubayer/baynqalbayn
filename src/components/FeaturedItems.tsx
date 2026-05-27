@@ -46,17 +46,17 @@ function createWhatsappLink(itemName: string, price: string) {
 
 export default function FeaturedItems() {
   return (
-    <section className="relative overflow-hidden bg-[#F7EFE3] px-4 py-20 sm:px-6 lg:px-8">
-      {/* Background accents */}
-      <div className="pointer-events-none absolute -left-35 top-10 h-80 w-80 rounded-full bg-[#C9A35B]/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-35 bottom-10 h-80 w-80 rounded-full bg-[#3A2418]/10 blur-3xl" />
+    <section className="relative w-full overflow-x-hidden bg-[#F7EFE3] px-4 py-20 sm:px-6 lg:px-8 isolation-auto">
+      {/* Background accents fixed container spill */}
+      <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-[#C9A35B]/15 blur-3xl transform-gpu" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#3A2418]/10 blur-3xl transform-gpu" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Top heading */}
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A35B]/35 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#5A3A28] shadow-sm">
-              <Sparkles size={15} className="text-[#C9A35B]" />
+              <Sparkles size={15} className="text-[#C9A35B] shrink-0" />
               Featured Selection
             </div>
 
@@ -79,67 +79,70 @@ export default function FeaturedItems() {
                 Explore Full Menu
                 <ArrowRight
                   size={17}
-                  className="transition group-hover:translate-x-1"
+                  className="transition transform-gpu group-hover:translate-x-1"
                 />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Featured grid */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        {/* Stable Mobile-First Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredItems.map((item, index) => (
             <article
               key={item.name}
-              className={`group overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-xl shadow-[#3A2418]/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#3A2418]/10 ${
+              className={`group flex flex-col overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-xl shadow-[#3A2418]/5 transition-all duration-300 ease-in-out transform-gpu backface-hidden ${
                 index === 1 ? "lg:-mt-6" : ""
               }`}
             >
-              <div className="relative h-72 overflow-hidden sm:h-80 lg:h-96">
+              {/* Image Container Aspect-Ratio Hack for Mobile Engines */}
+              <div className="relative aspect-4/3 w-full overflow-hidden sm:h-80 lg:h-96 sm:aspect-auto">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover transition duration-700 group-hover:scale-105"
+                  priority={index === 0}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition duration-700 transform-gpu group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/85 via-[#1F1A17]/15 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/90 via-[#1F1A17]/30 to-transparent" />
 
                 <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-[#FFF8EC]/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#5A3A28] shadow-md">
                   {index === 0 ? (
-                    <Coffee size={15} className="text-[#C9A35B]" />
+                    <Coffee size={15} className="text-[#C9A35B] shrink-0" />
                   ) : index === 1 ? (
-                    <Flame size={15} className="text-[#C9A35B]" />
+                    <Flame size={15} className="text-[#C9A35B] shrink-0" />
                   ) : (
-                    <Sparkles size={15} className="text-[#C9A35B]" />
+                    <Sparkles size={15} className="text-[#C9A35B] shrink-0" />
                   )}
                   {item.type}
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
                   <div className="mb-4 inline-flex rounded-full bg-[#C9A35B] px-4 py-2 text-sm font-bold text-[#1F1A17] shadow-md">
                     {item.price}
                   </div>
 
-                  <h3 className="font-serif text-2xl font-semibold text-[#FFF8EC] sm:text-3xl">
+                  <h3 className="font-serif text-2xl font-semibold text-[#FFF8EC] sm:text-3xl line-clamp-2">
                     {item.name}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-[#F7EFE3]/80">
+                  <p className="mt-3 text-sm leading-6 text-[#F7EFE3]/80 line-clamp-3">
                     {item.description}
                   </p>
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6">
+              {/* Action Button Section Container */}
+              <div className="mt-auto p-5 sm:p-6 bg-white">
                 <a
                   href={createWhatsappLink(item.name, item.price)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3A2418] px-5 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15 transition hover:bg-[#5A3A28]"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3A2418] px-5 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15 transition-all transform-gpu hover:bg-[#5A3A28] active:scale-[0.98]"
                 >
-                  <MessageCircle size={18} />
+                  <MessageCircle size={18} className="shrink-0" />
                   Order on WhatsApp
                 </a>
               </div>

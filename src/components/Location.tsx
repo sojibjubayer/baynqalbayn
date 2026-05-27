@@ -20,9 +20,11 @@ const whatsappMessage = encodeURIComponent(
 
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-// Replace this later with the exact Google Maps link of the cafe
 const googleMapsLink =
   "https://www.google.com/maps/search/?api=1&query=National%20Museum%20of%20Qatar%20Doha";
+
+const locationImage =
+  "/images/bayn-qalbayn/location/national-museum-area.webp";
 
 const locationCards = [
   {
@@ -48,12 +50,10 @@ export default function Location() {
       id="location"
       className="relative overflow-hidden bg-[#F7EFE3] px-4 py-20 sm:px-6 lg:px-8"
     >
-      {/* Background accents */}
       <div className="pointer-events-none absolute -left-35 top-10 h-80 w-80 rounded-full bg-[#C9A35B]/15 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -right-35 h-96 w-96 rounded-full bg-[#3A2418]/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A35B]/35 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#5A3A28] shadow-sm">
             <MapPin size={15} className="text-[#C9A35B]" />
@@ -71,15 +71,14 @@ export default function Location() {
           </p>
         </div>
 
-        {/* Main Location Grid */}
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-          {/* Left Image / Map Style Card */}
           <div className="relative overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:p-4">
             <div className="relative min-h-95 overflow-hidden rounded-3xl sm:min-h-125">
               <Image
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop"
-                alt="Doha city location and premium cafe visit"
+                src={locationImage}
+                alt="National Museum area near Bayn Qalbayn Cafe in Doha"
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -117,9 +116,7 @@ export default function Location() {
             </div>
           </div>
 
-          {/* Right Info */}
           <div className="grid gap-6">
-            {/* Address Card */}
             <div className="rounded-4xl bg-[#3A2418] p-6 shadow-2xl shadow-[#3A2418]/15 sm:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#C9A35B] text-[#1F1A17]">
                 <MapPin size={22} />
@@ -167,7 +164,6 @@ export default function Location() {
               </div>
             </div>
 
-            {/* Feature Cards */}
             <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
               {locationCards.map((card) => {
                 const Icon = card.icon;
@@ -198,7 +194,6 @@ export default function Location() {
           </div>
         </div>
 
-        {/* Map Embed */}
         <div className="mt-14 overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:p-4">
           <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-stretch">
             <div className="flex flex-col justify-center rounded-3xl bg-[#FFF8EC] p-6 sm:p-8">

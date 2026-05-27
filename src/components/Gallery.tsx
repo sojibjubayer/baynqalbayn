@@ -9,35 +9,35 @@ const galleryImages = [
     category: "Interior",
     image:
       "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop",
-    className: "lg:col-span-2 lg:row-span-2",
+    className: "sm:col-span-2 sm:row-span-2 aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Signature Coffee",
     category: "Coffee",
     image:
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop",
-    className: "",
+    className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Fresh Desserts",
     category: "Desserts",
     image:
       "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=900&auto=format&fit=crop",
-    className: "",
+    className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Restaurant Dining",
     category: "Dining",
     image:
       "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop",
-    className: "",
+    className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Premium Drinks",
     category: "Drinks",
     image:
       "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=900&auto=format&fit=crop",
-    className: "",
+    className: "aspect-[4/3] sm:aspect-auto",
   },
 ];
 
@@ -63,18 +63,18 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="relative overflow-hidden bg-[#FFF8EC] px-4 py-20 sm:px-6 lg:px-8"
+      className="relative w-full overflow-x-hidden bg-[#FFF8EC] px-4 py-20 sm:px-6 lg:px-8 isolation-auto"
     >
-      {/* Background effects */}
-      <div className="pointer-events-none absolute -left-35 top-20 h-80 w-80 rounded-full bg-[#C9A35B]/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 -right-35 h-96 w-96 rounded-full bg-[#3A2418]/10 blur-3xl" />
+      {/* Background effects with hardware acceleration and fixed overflow boundaries */}
+      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#C9A35B]/10 blur-3xl transform-gpu" />
+      <div className="pointer-events-none absolute bottom-0 -right-32 h-96 w-96 rounded-full bg-[#3A2418]/10 blur-3xl transform-gpu" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A35B]/35 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#5A3A28] shadow-sm">
-              <Camera size={15} className="text-[#C9A35B]" />
+              <Camera size={15} className="text-[#C9A35B] shrink-0" />
               Gallery
             </div>
 
@@ -97,38 +97,38 @@ export default function Gallery() {
               Visit Us in Doha
               <ArrowRight
                 size={17}
-                className="transition group-hover:translate-x-1"
+                className="transition transform-gpu group-hover:translate-x-1"
               />
             </a>
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="mt-12 grid auto-rows-[260px] gap-4 sm:grid-cols-2 sm:auto-rows-[300px] lg:grid-cols-4 lg:auto-rows-[260px]">
+        {/* Rock Solid Mobile Grid using Aspect Ratios */}
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[300px] lg:grid-cols-4 lg:auto-rows-[260px]">
           {galleryImages.map((item) => (
             <article
               key={item.title}
-              className={`group relative overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-xl shadow-[#3A2418]/5 ${item.className}`}
+              className={`group relative overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white shadow-xl shadow-[#3A2418]/5 transform-gpu backface-hidden ${item.className}`}
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover transition duration-700 group-hover:scale-105"
+                className="object-cover transition duration-700 transform-gpu group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/85 via-[#1F1A17]/15 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/90 via-[#1F1A17]/20 to-transparent" />
 
               <div className="absolute left-5 top-5 inline-flex rounded-full bg-[#FFF8EC]/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#5A3A28] shadow-md">
                 {item.category}
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="font-serif text-2xl font-semibold text-[#FFF8EC]">
+              <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                <h3 className="font-serif text-2xl font-semibold text-[#FFF8EC] line-clamp-1">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-[#F7EFE3]/75">
+                <p className="mt-1 text-xs leading-5 text-[#F7EFE3]/75">
                   Bayn Qalbayn Cafe & Restaurant
                 </p>
               </div>
@@ -137,10 +137,10 @@ export default function Gallery() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-14 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
           {/* Left brand note */}
-          <div className="rounded-4xl bg-[#3A2418] p-6 shadow-2xl shadow-[#3A2418]/15 sm:p-8">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#C9A35B] text-[#1F1A17]">
+          <div className="rounded-4xl bg-[#3A2418] p-6 shadow-2xl shadow-[#3A2418]/15 sm:p-8 flex flex-col justify-center">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#C9A35B] text-[#1F1A17] shrink-0">
               <Sparkles size={22} />
             </div>
 
@@ -156,16 +156,16 @@ export default function Gallery() {
           </div>
 
           {/* Right highlight cards */}
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {highlights.map((item) => {
               const Icon = item.icon;
 
               return (
                 <div
                   key={item.title}
-                  className="rounded-4xl border border-[#C9A35B]/20 bg-white p-6 shadow-lg shadow-[#3A2418]/5"
+                  className="rounded-4xl border border-[#C9A35B]/20 bg-white p-6 shadow-lg shadow-[#3A2418]/5 flex flex-col items-start"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF8EC] text-[#C9A35B] shadow-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF8EC] text-[#C9A35B] shadow-sm shrink-0">
                     <Icon size={22} />
                   </div>
 
