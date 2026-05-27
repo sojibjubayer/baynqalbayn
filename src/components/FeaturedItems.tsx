@@ -13,8 +13,7 @@ const featuredItems = [
     price: "22 QAR",
     description:
       "A smooth cafe favorite with rich espresso, creamy milk, and a balanced sweet finish.",
-    image:
-      "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=1200&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/signature-spanish-latte.webp",
   },
   {
     name: "Grilled Chicken Platter",
@@ -22,8 +21,8 @@ const featuredItems = [
     price: "55 QAR",
     description:
       "Freshly grilled chicken served with flavorful sides and a premium restaurant presentation.",
-    image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=1200&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/grilled-chicken-platter.webp",
+
   },
   {
     name: "Classic Chocolate Cake",
@@ -31,8 +30,8 @@ const featuredItems = [
     price: "26 QAR",
     description:
       "Soft, rich, and indulgent chocolate cake, perfect with coffee or after a meal.",
-    image:
-      "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=1200&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/chocolate-cake.webp",
+
   },
 ];
 

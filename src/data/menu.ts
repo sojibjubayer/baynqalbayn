@@ -121,30 +121,29 @@ export const menuItems: MenuItem[] = [
     price: "21 QAR",
     description:
       "A cool and refreshing blend of lemon and mint, served chilled with ice.",
-    image:
-      "https://images.unsplash.com/photo-1621263764928-df1444c5e859?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/mint-lemonade.webp",
+
     tag: "Refreshing",
   },
   {
     id: 7,
     name: "Mixed Berry Mocktail",
-    category: "drinks",
+    category: "drinks", 
     price: "26 QAR",
     description:
       "A colorful berry drink with a fruity taste, served chilled for a refreshing cafe moment.",
-    image:
-      "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/mixed-berry-mocktail.webp",
+
     tag: "Mocktail",
   },
   {
     id: 8,
-    name: "Classic Breakfast Plate",
+    name: "Classic Breakfast Plate", 
     category: "breakfast",
     price: "42 QAR",
     description:
       "A satisfying breakfast selection with fresh bread, eggs, cheese, and cafe sides.",
-    image:
-      "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/classic-breakfast-plate.webp",
     tag: "Morning Special",
   },
   {
@@ -153,9 +152,8 @@ export const menuItems: MenuItem[] = [
     category: "breakfast",
     price: "28 QAR",
     description:
-      "Buttery croissant filled with fresh ingredients, perfect with coffee or tea.",
-    image:
-      "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=900&auto=format&fit=crop",
+      "Buttery croissant filled with fresh ingredients, perfect with coffee or tea.", 
+    image:"/images/bayn-qalbayn/menu/croissand-sandwich.webp",
     tag: "Cafe Favorite",
   },
   {
@@ -164,9 +162,8 @@ export const menuItems: MenuItem[] = [
     category: "breakfast",
     price: "34 QAR",
     description:
-      "Toasted bread topped with creamy avocado, herbs, and a fresh breakfast-style finish.",
-    image:
-      "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=900&auto=format&fit=crop",
+      "Toasted bread topped with creamy avocado, herbs, and a fresh breakfast-style finish.", 
+    image:"/images/bayn-qalbayn/menu/avocado-toast.webp",
     tag: "Light Bite",
   },
   {
@@ -175,9 +172,8 @@ export const menuItems: MenuItem[] = [
     category: "main-course",
     price: "55 QAR",
     description:
-      "Juicy grilled chicken served with sides, sauce, and a premium dining presentation.",
-    image:
-      "https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=900&auto=format&fit=crop",
+      "Juicy grilled chicken served with sides, sauce, and a premium dining presentation.", 
+    image:"/images/bayn-qalbayn/menu/grilled-chicken-platter.webp",
     tag: "Chef Choice",
   },
   {
@@ -186,9 +182,8 @@ export const menuItems: MenuItem[] = [
     category: "main-course",
     price: "49 QAR",
     description:
-      "Creamy pasta cooked with rich sauce, herbs, and a comforting restaurant flavor.",
-    image:
-      "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=900&auto=format&fit=crop",
+      "Creamy pasta cooked with rich sauce, herbs, and a comforting restaurant flavor.", 
+    image:"/images/bayn-qalbayn/menu/creamy-alfredo-pasta.webp",
     tag: "Popular",
   },
   {
@@ -198,8 +193,7 @@ export const menuItems: MenuItem[] = [
     price: "46 QAR",
     description:
       "Juicy beef burger with fresh toppings, soft bun, and classic cafe-style serving.",
-    image:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/classic-beef-burger.webp",
     tag: "Burger",
   },
   {
@@ -209,8 +203,7 @@ export const menuItems: MenuItem[] = [
     price: "26 QAR",
     description:
       "Soft chocolate cake with a rich texture, ideal with coffee or after dinner.",
-    image:
-      "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/chocolate-cake.webp",
     tag: "Sweet",
   },
   {
@@ -220,8 +213,8 @@ export const menuItems: MenuItem[] = [
     price: "29 QAR",
     description:
       "Creamy cheesecake with a smooth finish and elegant cafe-style presentation.",
-    image:
-      "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/classic-cheesecake.webp",
+
     tag: "Dessert Pick",
   },
   {
@@ -231,8 +224,7 @@ export const menuItems: MenuItem[] = [
     price: "27 QAR",
     description:
       "A creamy dessert cup with biscuit flavor, smooth layers, and a cafe-style finish.",
-    image:
-      "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/lotus-desert-cup.webp",
     tag: "Special",
   },
 ];

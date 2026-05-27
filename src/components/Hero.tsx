@@ -133,7 +133,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-4xl border border-[#FFF8EC]/15 bg-[#FFF8EC]/10 p-5 shadow-2xl shadow-black/30 backdrop-blur-xl">
               <div className="relative h-107.5 overflow-hidden rounded-3xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/bayn-qalbayn/menu/hero-image.webp"
                   alt="Elegant restaurant ambience"
                   fill
                   sizes="(min-width: 1024px) 420px, 100vw"

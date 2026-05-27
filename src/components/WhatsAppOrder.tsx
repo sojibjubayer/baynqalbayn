@@ -7,7 +7,7 @@ import {
   Clock,
   MapPin,
   MessageCircle,
-  ShoppingBag,
+  ShoppingBag, 
   Utensils,
 } from "lucide-react";
 
@@ -72,7 +72,7 @@ export default function WhatsAppOrder() {
             <div className="overflow-hidden rounded-4xl border border-[#FFF8EC]/15 bg-[#FFF8EC]/10 p-3 shadow-2xl shadow-black/25 backdrop-blur-md sm:p-4">
               <div className="relative h-90 overflow-hidden rounded-3xl sm:h-117.5">
                 <Image
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/bayn-qalbayn/menu/cafe-food.webp"
                   alt="Cafe food and restaurant table"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

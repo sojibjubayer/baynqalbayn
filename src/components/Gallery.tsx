@@ -7,36 +7,35 @@ const galleryImages = [
   {
     title: "Elegant Cafe Ambience",
     category: "Interior",
-    image:
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/hero-image.webp",
     className: "sm:col-span-2 sm:row-span-2 aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Signature Coffee",
     category: "Coffee",
-    image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/signature-coffee.webp",
+
     className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Fresh Desserts",
     category: "Desserts",
-    image:
-      "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/fresh-dessert.webp",
+
     className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Restaurant Dining",
     category: "Dining",
-    image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/cafe-food.webp",
+
     className: "aspect-[4/3] sm:aspect-auto",
   },
   {
     title: "Premium Drinks",
     category: "Drinks",
-    image:
-      "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=900&auto=format&fit=crop",
+    image:"/images/bayn-qalbayn/menu/premium-drinks.webp",
+
     className: "aspect-[4/3] sm:aspect-auto",
   },
 ];
