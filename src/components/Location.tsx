@@ -1,5 +1,3 @@
-// src/components/Location.tsx
-
 import Image from "next/image";
 import {
   Clock,
@@ -48,32 +46,32 @@ export default function Location() {
   return (
     <section
       id="location"
-      className="relative overflow-hidden bg-[#F7EFE3] px-4 py-20 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-[#F7EFE3] px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
     >
-      <div className="pointer-events-none absolute -left-35 top-10 h-80 w-80 rounded-full bg-[#C9A35B]/15 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 -right-35 h-96 w-96 rounded-full bg-[#3A2418]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 top-10 h-60 w-60 rounded-full bg-[#C9A35B]/15 blur-3xl sm:h-80 sm:w-80" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#3A2418]/10 blur-3xl sm:h-96 sm:w-96" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A35B]/35 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#5A3A28] shadow-sm">
-            <MapPin size={15} className="text-[#C9A35B]" />
-            Find Us
+          <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#C9A35B]/35 bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A3A28] shadow-sm sm:text-xs">
+            <MapPin size={15} className="shrink-0 text-[#C9A35B]" />
+            <span>Find Us</span>
           </div>
 
-          <h2 className="mt-5 font-serif text-3xl font-semibold uppercase leading-tight tracking-[0.08em] text-[#3A2418] sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-serif text-3xl font-semibold uppercase leading-tight tracking-[0.06em] text-[#3A2418] sm:text-4xl lg:text-5xl">
             Visit Bayn Qalbayn in Doha
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-[#5A3A28]/80 sm:text-base">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#5A3A28]/80 sm:text-base">
             Bayn Qalbayn Cafe & Restaurant is located beside the National Museum
             of Qatar, a strong and easy-to-recognize destination for local
             customers, tourists, and visitors.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
-          <div className="relative overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:p-4">
-            <div className="relative min-h-95 overflow-hidden rounded-3xl sm:min-h-125">
+        <div className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+          <div className="overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:p-4">
+            <div className="relative h-130 overflow-hidden rounded-3xl sm:h-155 lg:h-full lg:min-h-155">
               <Image
                 src={locationImage}
                 alt="National Museum area near Bayn Qalbayn Cafe in Doha"
@@ -83,18 +81,18 @@ export default function Location() {
                 className="object-cover"
               />
 
-              <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/85 via-[#1F1A17]/25 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#1F1A17]/90 via-[#1F1A17]/30 to-transparent" />
 
-              <div className="absolute left-5 top-5 rounded-full bg-[#FFF8EC]/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#5A3A28] shadow-md">
+              <div className="absolute left-4 top-4 rounded-full bg-[#FFF8EC]/95 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#5A3A28] shadow-md sm:left-5 sm:top-5 sm:px-4 sm:text-xs">
                 National Museum Area
               </div>
 
-              <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-[#FFF8EC]/15 bg-[#1F1A17]/75 p-5 backdrop-blur-md sm:p-6">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#C9A35B]">
+              <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-[#FFF8EC]/15 bg-[#1F1A17]/75 p-4 backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C9A35B] sm:text-xs">
                   Location Highlight
                 </p>
 
-                <h3 className="mt-2 font-serif text-2xl font-semibold text-[#FFF8EC] sm:text-3xl">
+                <h3 className="mt-2 font-serif text-2xl font-semibold leading-tight text-[#FFF8EC] sm:text-3xl">
                   Beside National Museum, Doha
                 </h3>
 
@@ -107,7 +105,7 @@ export default function Location() {
                   href={googleMapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A35B] px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#1F1A17] shadow-lg shadow-[#C9A35B]/20 transition hover:bg-[#D8B76C] sm:w-auto"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C9A35B] px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#1F1A17] shadow-lg shadow-[#C9A35B]/20 transition hover:bg-[#D8B76C] sm:w-auto sm:px-5 sm:text-sm"
                 >
                   <Navigation size={17} />
                   Get Directions
@@ -117,7 +115,7 @@ export default function Location() {
           </div>
 
           <div className="grid gap-6">
-            <div className="rounded-4xl bg-[#3A2418] p-6 shadow-2xl shadow-[#3A2418]/15 sm:p-8">
+            <div className="rounded-4xl bg-[#3A2418] p-5 shadow-2xl shadow-[#3A2418]/15 sm:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#C9A35B] text-[#1F1A17]">
                 <MapPin size={22} />
               </div>
@@ -133,7 +131,7 @@ export default function Location() {
               </p>
 
               <div className="mt-6 rounded-3xl border border-[#FFF8EC]/15 bg-[#FFF8EC]/10 p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#C9A35B]">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#C9A35B]">
                   Address
                 </p>
                 <p className="mt-2 text-base font-semibold leading-7 text-[#FFF8EC]">
@@ -146,7 +144,7 @@ export default function Location() {
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 <a
                   href={`tel:${phoneNumber.replace(/\s/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#FFF8EC]/25 bg-[#FFF8EC]/10 px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#FFF8EC] transition hover:bg-[#FFF8EC] hover:text-[#3A2418]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#FFF8EC]/25 bg-[#FFF8EC]/10 px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#FFF8EC] transition hover:bg-[#FFF8EC] hover:text-[#3A2418] sm:text-sm"
                 >
                   <Phone size={17} />
                   Call Now
@@ -156,7 +154,7 @@ export default function Location() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#C9A35B] px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#1F1A17] shadow-lg shadow-[#C9A35B]/20 transition hover:bg-[#D8B76C]"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#C9A35B] px-4 py-3 text-xs font-bold uppercase tracking-widest text-[#1F1A17] shadow-lg shadow-[#C9A35B]/20 transition hover:bg-[#D8B76C] sm:text-sm"
                 >
                   <MessageCircle size={17} />
                   WhatsApp
@@ -194,10 +192,10 @@ export default function Location() {
           </div>
         </div>
 
-        <div className="mt-14 overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:p-4">
+        <div className="mt-12 overflow-hidden rounded-4xl border border-[#C9A35B]/20 bg-white p-3 shadow-2xl shadow-[#3A2418]/10 sm:mt-14 sm:p-4">
           <div className="grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-stretch">
-            <div className="flex flex-col justify-center rounded-3xl bg-[#FFF8EC] p-6 sm:p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#C9A35B]">
+            <div className="flex flex-col justify-center rounded-3xl bg-[#FFF8EC] p-5 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#C9A35B]">
                 Google Maps
               </p>
 
@@ -215,18 +213,18 @@ export default function Location() {
                 href={googleMapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[#3A2418] px-6 py-4 text-sm font-bold uppercase tracking-[0.14em] text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15 transition hover:bg-[#5A3A28] sm:w-fit"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3A2418] px-5 py-4 text-xs font-bold uppercase tracking-widest text-[#FFF8EC] shadow-lg shadow-[#3A2418]/15 transition hover:bg-[#5A3A28] sm:w-fit sm:px-6 sm:text-sm"
               >
                 Open in Google Maps
                 <ExternalLink size={17} />
               </a>
             </div>
 
-            <div className="min-h-90 overflow-hidden rounded-3xl sm:min-h-107.5">
+            <div className="h-90 overflow-hidden rounded-3xl sm:h-107.5 lg:h-full lg:min-h-107.5">
               <iframe
                 title="Bayn Qalbayn Cafe location map"
                 src="https://www.google.com/maps?q=National%20Museum%20of%20Qatar%20Doha&output=embed"
-                className="h-full min-h-90 w-full border-0 sm:min-h-107.5"
+                className="h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
