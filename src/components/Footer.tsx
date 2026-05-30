@@ -250,14 +250,27 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="flex flex-col gap-3 py-6 text-center text-xs text-[#F7EFE3]/55 sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <p>
-            © {new Date().getFullYear()} Bayn Qalbayn Cafe & Restaurant. All
-            rights reserved.
-          </p>
+       {/* Copyright */}
+<div className="flex flex-col gap-4 py-6 text-center text-xs text-[#F7EFE3]/55 sm:flex-row sm:items-center sm:justify-between sm:text-left">
+  <p>
+    © {new Date().getFullYear()} Bayn Qalbayn Cafe & Restaurant. All
+    rights reserved.
+  </p>
 
-          <p>Premium cafe website concept designed for Bayn Qalbayn, Doha.</p>
-        </div>
+  <a
+    href="https://samiracloud.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center gap-2 text-[#F7EFE3]/60 transition hover:text-[#C9A35B] sm:justify-end"
+  >
+    <span>Design & Developed by</span>
+    <img
+      src="/images/samiracloud-logo.png"
+      alt="Samira Cloud"
+      className="h-6 w-auto"
+    />
+  </a>
+</div>
       </div>
     </footer>
   );
